@@ -1,0 +1,6 @@
+---
+# tasks file for host-setup
+
+- name: Run first task
+  debug:
+    msg: "First task"
