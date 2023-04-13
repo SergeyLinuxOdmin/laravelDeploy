@@ -3,3 +3,6 @@
 
 - name: Add compose file
   include_tasks: add-compose-files.yml
+
+- name: Run project
+  include_tasks: run-project.yml

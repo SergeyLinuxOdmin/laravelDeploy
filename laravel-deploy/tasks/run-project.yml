@@ -1,0 +1,14 @@
+- name: Run docker compose project
+  block:
+    - name: Tear down exist project
+      docker_compose:
+        project_src: "{{ project_dir }}"
+        state: absent
+
+    - name: Create new project
+      docker_compose:
+        project_src: "{{ project_dir }}"
+      register: output
+
+    - ansible.builtin.debug:
+        var: output
