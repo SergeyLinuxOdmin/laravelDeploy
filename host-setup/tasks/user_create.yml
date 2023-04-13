@@ -6,6 +6,7 @@
         comment: default user
         uid: 1001
         group: admin
+        shell: /bin/bash
       with_items: "{{ users }}"
 
     - name: Add ssh publish keys
