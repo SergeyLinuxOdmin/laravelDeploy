@@ -50,7 +50,7 @@ jobs:
           tags: sergeyr45/test-lustova:latest
 
   deploy:
-    needs: cook
+    needs: [cook, build]
     runs-on: ubuntu-latest
     steps:
       -
