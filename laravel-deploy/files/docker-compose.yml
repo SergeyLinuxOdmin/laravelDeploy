@@ -62,7 +62,7 @@ services:
     depends_on:
       - db
     command:
-      - /usr/bin/php artisan migrate
+      - /usr/bin/php artisan migrate --no-interaction --force
     volumes:
       - ./www:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
@@ -80,7 +80,7 @@ services:
       SERVICE_TAGS: dev
     working_dir: /var/www
     command:
-      - /usr/bin/php artisan tinker
+      - /usr/bin/php artisan tinker --no-interaction
     volumes:
       - ./www:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
