@@ -4,11 +4,12 @@
       docker_compose:
         project_src: "{{ project_dir }}"
         state: absent
+      ignore_errors: true
 
     - name: Create new project
       docker_compose:
         project_src: "{{ project_dir }}"
       register: output
 
-    - ansible.builtin.debug:
+    - debug:
         var: output
