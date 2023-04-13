@@ -36,3 +36,8 @@
       template:
         src: my.cnf.j2
         dest: "{{ project_dir }}/mysql/my.cnf"
+
+    - name: Copy env template
+      template:
+        src: env_file.j2
+        dest: "{{ project_dir }}/.env"
