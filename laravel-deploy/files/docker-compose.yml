@@ -41,9 +41,51 @@ services:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
     working_dir: /var/www
+    depends_on:
+      - db
     volumes:
       - ./www:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app
+      - internal
+
+  migration:
+    image: sergeyr45/test-lustova:latest
+    container_name: migration
+    restart: no
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    depends_on:
+      - db
+    command:
+      - docker-compose exec app php artisan migrate
+    volumes:
+      - ./www:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app
+      - internal
+
+  tinker:
+    image: sergeyr45/test-lustova:latest
+    container_name: tinker
+    restart: no
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    command:
+      - docker-compose exec app php artisan tinker
+    volumes:
+      - ./www:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - migration
     networks:
       - app
       - internal

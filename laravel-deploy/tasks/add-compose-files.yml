@@ -53,4 +53,3 @@
       docker_network:
         name: app
         state: present
-        
