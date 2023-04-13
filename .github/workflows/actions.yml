@@ -71,4 +71,4 @@ jobs:
           # Optional, additional flags to pass to ansible-playbook
           options: |
             --inventory hosts/hosts.yml
-            --extra-vars MYSQL_PASSWORD=${{secrets.MYSQL_PASSWORD}}
+            --extra-vars MYSQL_PASSWORD=${{secrets.MYSQL_PASSWORD}} LARAVEL_PASSWORD=${{secrets.LARAVEL_PASSWORD}}
