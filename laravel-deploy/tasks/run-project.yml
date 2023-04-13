@@ -9,6 +9,7 @@
     - name: Create new project
       docker_compose:
         project_src: "{{ project_dir }}"
+        env_file: "{{ project_dir }}/.env"
       register: output
 
     - debug:

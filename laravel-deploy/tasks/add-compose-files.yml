@@ -15,8 +15,10 @@
         group: root
         mode: "0755"
         path: "{{ item }}"
+        recurse: true
       with_items:
         - "{{ project_dir }}/nginx/conf.d/"
+        - "{{ project_dir }}/mysql/logs"
 
     - name: Copy files for deploy
       synchronize:
@@ -24,3 +26,13 @@
         dest: "{{ project_dir }}"
       with_items:
         - docker-compose.yml
+
+    - name: Copy template for deploy
+      template:
+        src: nginx.conf.j2
+        dest: "{{ project_dir }}/nginx/conf.d/"
+
+    - name: Copy template for mysql
+      template:
+        src: my.cnf.j2
+        dest: "{{ project_dir }}/mysql/my.cnf"
