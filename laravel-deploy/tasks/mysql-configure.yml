@@ -2,7 +2,7 @@
   block:
     - name: Create database
       mysql_db:
-        name: "{{ DB_DATABAS }}"
+        name: "{{ DB_DATABASE }}"
         state: present
 
     - name: Create users
