@@ -2,7 +2,8 @@ name: Run playbook
 run-name: Project cooking
 on: push
 jobs:
-  cook:
+  deploy:
+    needs: cook
     runs-on: ubuntu-latest
     steps:
       -
