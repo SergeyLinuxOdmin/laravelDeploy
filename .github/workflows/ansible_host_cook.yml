@@ -1,4 +1,7 @@
-- name: Run playbook
+name: Run playbook
+run-name: Host cooking
+on: push
+jobs:
   uses: dawidd6/action-ansible-playbook@v2
   with:
     # Required, playbook filepath
