@@ -13,3 +13,4 @@
         - python3-docker
         - docker-compose
         - net-tools
+        - mysql-client-core-8.0
