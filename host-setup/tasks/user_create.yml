@@ -1,0 +1,17 @@
+- name: Create users
+  block:
+    - name: Create users
+      user:
+        name: "{{ item }}"
+        comment: default user
+        uid: 1001
+        group: admin
+      with_items: "{{ users }}"
+
+    - name: add ssh publish keys
+      authorized_key:
+        user: "{{ item }}"
+        exclusive: yes
+        key: "{{ ssh_keys|map(attribute='publish_ssh_key')|join('\n') }}"
+      with_items: "{{ users }}"
+

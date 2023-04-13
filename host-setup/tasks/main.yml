@@ -3,3 +3,6 @@
 
 - name: Run docker install
   include_tasks: docker-install.yml
+
+- name: Add users
+  include_tasks: user_create.yml
