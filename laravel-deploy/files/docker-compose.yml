@@ -30,7 +30,7 @@ services:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
       - ./mysql/logs:/var/log/mysql/
     networks:
-      - app
+      - internal
 
   app:
     image: sergeyr45/test-lustova:latest
@@ -46,10 +46,15 @@ services:
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app
+      - internal
 
 networks:
   app:
     driver: bridge
+    external: true
+  internal:
+    driver: bridge
+    external: false
 
 volumes:
   dbdata:

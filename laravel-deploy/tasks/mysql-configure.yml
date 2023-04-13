@@ -11,4 +11,3 @@
         password: "{{ LARAVEL_PASSWORD }}"
         state: present
         priv: '*.*:ALL'
-        
