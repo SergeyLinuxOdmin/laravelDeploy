@@ -1,0 +1,5 @@
+---
+# tasks file for laravel-deploy
+
+- name: Add compose file
+  include_tasks: add-compose-files.yml

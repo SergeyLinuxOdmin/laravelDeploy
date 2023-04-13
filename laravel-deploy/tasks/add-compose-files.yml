@@ -1,0 +1,26 @@
+- name: Prepare host for compouse
+  block:
+    - name: Create project dir
+      file:
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+        path: "{{ project_dir }}"
+
+    - name: Create services dirs
+      file:
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+        path: "{{ item }}"
+      with_items:
+        - "{{ project_dir }}/nginx/conf.d/"
+
+    - name:
+      synchronize:
+        src: "{{ item }}"
+        dest: "{{ project_dir }}"
+      with_items:
+

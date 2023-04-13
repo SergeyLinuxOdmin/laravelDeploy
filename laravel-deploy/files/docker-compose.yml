@@ -1,0 +1,22 @@
+version: 3
+services:
+  webserver:
+    image: nginx
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

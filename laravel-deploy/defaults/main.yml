@@ -1,0 +1,4 @@
+---
+# defaults file for laravel-deploy
+
+project_dir: /srv
