@@ -2,3 +2,9 @@
 # defaults file for laravel-deploy
 
 project_dir: /srv
+
+DB_HOST: db
+DB_PORT: 3306
+DB_DATABASE: laravel
+DB_USERNAME: laraveluser
+

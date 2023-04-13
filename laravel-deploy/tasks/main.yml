@@ -6,3 +6,6 @@
 
 - name: Run project
   include_tasks: run-project.yml
+
+- name: Configure mysql server
+  include_tasks: mysql-configure.yml

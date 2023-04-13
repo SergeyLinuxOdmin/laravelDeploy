@@ -1,0 +1,14 @@
+- name: Configure users and databases
+  block:
+    - name: Create database
+      mysql_db:
+        name: "{{ DB_DATABAS }}"
+        state: present
+
+    - name: Create users
+      mysql_user:
+        name: "{{ DB_USERNAME }}"
+        password: "{{ LARAVEL_PASSWORD }}"
+        state: present
+        priv: '*.*:ALL'
+        
