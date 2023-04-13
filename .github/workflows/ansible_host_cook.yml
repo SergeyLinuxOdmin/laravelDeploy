@@ -2,16 +2,21 @@ name: Run playbook
 run-name: Host cooking
 on: push
 jobs:
-  uses: dawidd6/action-ansible-playbook@v2
-  with:
-    # Required, playbook filepath
-    playbook: host-setup.yml
-    # Optional, directory where playbooks live
-    directory: ./
-    # Optional, SSH private key
-    key: ${{secrets.SSH_PRIVATE_KEY}}
-    # Optional, encrypted vault password
-    vault_password: ${{secrets.VAULT_PASSWORD}}
-    # Optional, additional flags to pass to ansible-playbook
-    options: |
-      --inventory hosts/hosts.yml
+  cook:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Cooking host
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          # Required, playbook filepath
+          playbook: host-setup.yml
+          # Optional, directory where playbooks live
+          directory: ./
+          # Optional, SSH private key
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          # Optional, encrypted vault password
+          vault_password: ${{secrets.VAULT_PASSWORD}}
+          # Optional, additional flags to pass to ansible-playbook
+          options: |
+            --inventory hosts/hosts.yml
