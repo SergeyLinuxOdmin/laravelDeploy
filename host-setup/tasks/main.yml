@@ -2,5 +2,4 @@
 # tasks file for host-setup
 
 - name: Run docker install
-  include: docker-install.yml
-  
+  include_tasks: docker-install.yml
