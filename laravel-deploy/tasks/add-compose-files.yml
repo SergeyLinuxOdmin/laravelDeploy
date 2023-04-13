@@ -48,3 +48,9 @@
       template:
         src: local.ini.j2
         dest: "{{ project_dir }}/php/local.ini"
+
+    - name: Create external network
+      docker_network:
+        name: app
+        state: present
+        
