@@ -18,9 +18,9 @@
       with_items:
         - "{{ project_dir }}/nginx/conf.d/"
 
-    - name:
+    - name: Copy files for deploy
       synchronize:
         src: "{{ item }}"
         dest: "{{ project_dir }}"
       with_items:
-
+        - docker-compose.yml
