@@ -7,12 +7,8 @@
     directory: ./
     # Optional, SSH private key
     key: ${{secrets.SSH_PRIVATE_KEY}}
-    # Optional, literal inventory file contents
-    inventory: |
-      [all]
-      vm-laravel ansible_host=101.10.1.10 ansible_user=ubuntu
     # Optional, encrypted vault password
     vault_password: ${{secrets.VAULT_PASSWORD}}
     # Optional, additional flags to pass to ansible-playbook
     options: |
-      --inventory .hosts
+      --inventory hosts/hosts.yml
