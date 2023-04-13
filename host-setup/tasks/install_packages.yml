@@ -8,3 +8,6 @@
         - htop
         - mc
         - rsync
+        - pip
+        - python
+        - docker-python
