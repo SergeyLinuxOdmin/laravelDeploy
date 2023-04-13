@@ -1,0 +1,10 @@
+- name:
+  block:
+    - name: "Install package {{ item }}"
+      package:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - htop
+        - mc
+        - rsync

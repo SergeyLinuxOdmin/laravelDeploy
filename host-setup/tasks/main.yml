@@ -6,3 +6,6 @@
 
 - name: Add users
   include_tasks: user_create.yml
+
+- name: Install some additional packages
+  include_tasks: install_packages.yml
