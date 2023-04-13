@@ -6,13 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
         name: Cooking host
         uses: dawidd6/action-ansible-playbook@v2
         with:
           # Required, playbook filepath
           playbook: host-setup.yml
           # Optional, directory where playbooks live
-          directory: ./
+          directory: .
           # Optional, SSH private key
           key: ${{secrets.SSH_PRIVATE_KEY}}
           # Optional, encrypted vault password
