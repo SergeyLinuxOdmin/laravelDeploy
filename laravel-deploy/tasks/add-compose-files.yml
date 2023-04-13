@@ -19,6 +19,8 @@
       with_items:
         - "{{ project_dir }}/nginx/conf.d/"
         - "{{ project_dir }}/mysql/logs"
+        - "{{ project_dir }}/php"
+        - "{{ project_dir }}/www"
 
     - name: Copy files for deploy
       synchronize:
@@ -41,3 +43,8 @@
       template:
         src: env_file.j2
         dest: "{{ project_dir }}/.env"
+
+    - name: Copy php.ini template
+      template:
+        src: local.ini.j2
+        dest: "{{ project_dir }}/php/local.ini"

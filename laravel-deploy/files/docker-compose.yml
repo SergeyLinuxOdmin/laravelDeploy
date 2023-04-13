@@ -32,6 +32,21 @@ services:
     networks:
       - app
 
+  app:
+    image: sergeyr45/test-lustova:latest
+    container_name: app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./www:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app
+
 networks:
   app:
     driver: bridge
