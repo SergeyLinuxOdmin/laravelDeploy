@@ -30,7 +30,7 @@ services:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
       - ./mysql/logs:/var/log/mysql/
     networks:
-      - app-network
+      - app
 
 networks:
   app:
