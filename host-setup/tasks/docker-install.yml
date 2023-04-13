@@ -10,7 +10,9 @@
 
     - name: Setup docker repo key
       shell:
-        cmd: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg --batch --yes && chmod a+r /etc/apt/keyrings/docker.gpg"
+        cmd: |
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg --batch --yes && \
+          chmod a+r /etc/apt/keyrings/docker.gpg"
 
     - name: Add docker repo
       shell:
@@ -22,4 +24,4 @@
 
     - name: Install Docker engine
       shell:
-        cmd: "apt-get update && apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin"
+        cmd: "apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin"
